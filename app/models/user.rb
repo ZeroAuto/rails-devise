@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :members
-  accepts_nested_attributes_for :members
+  accepts_nested_attributes_for :members, allow_destroy: true
 end
