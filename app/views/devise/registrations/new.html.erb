@@ -18,12 +18,6 @@
           <%= f.label :password_confirmation %>
           <%= f.password_field :password_confirmation, class: 'form-control' %>
         </div>
-          <%= f.nested_fields_for :members do |m| %>
-            <%= m.label :first_name, "First Name" %>
-            <%= m.text_field :first_name, class: 'form-control' %>
-            <%= m.remove_nested_fields_link 'Remove Member', class: 'form-control' %>
-          <% end %>
-        <%= f.add_nested_fields_link :members, class: 'button right' %>
         <%= f.submit 'Sign up', :class => 'button right' %>
       <% end %>
     </div>
