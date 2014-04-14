@@ -1,29 +1,29 @@
-    <div class="authform">
-      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
-        <h3>Sign up</h3>
-        <%= devise_error_messages! %>
-        <div class="form-group">
-          <%= f.label :email %>
-          <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :band_name, "Band Name" %>
-          <%= f.text_field :band_name, :autofocus => true, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :password %>
-          <%= f.password_field :password, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, class: 'form-control' %>
-        </div>
-          <%= f.nested_fields_for :members do |m| %>
-            <%= m.label :first_name, "First Name" %>
-            <%= m.text_field :first_name, class: 'form-control' %>
-            <%= m.remove_nested_fields_link 'Remove Member', class: 'form-control' %>
-          <% end %>
-        <%= f.add_nested_fields_link :members, class: 'button right' %>
-        <%= f.submit 'Sign up', :class => 'button right' %>
-      <% end %>
+<div class="authform">
+  <%= form_for(resource, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
+    <h3>Sign up</h3>
+    <%= devise_error_messages! %>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
     </div>
+    <div class="form-group">
+      <%= f.label :band_name, "Band Name" %>
+      <%= f.text_field :band_name, :autofocus => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+    </div>
+      <%= f.nested_fields_for :members do |m| %>
+        <%= m.label :first_name, "First Name" %>
+        <%= m.text_field :first_name, class: 'form-control' %>
+        <%= m.remove_nested_fields_link 'Remove Member' %>
+      <% end %>
+    <%= f.add_nested_fields_link :members %>
+    <%= f.submit 'Sign up', :class => 'button right' %>
+  <% end %>
+</div>
