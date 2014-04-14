@@ -13,6 +13,7 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'nested_form_fields'
+gem 'wicked'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
