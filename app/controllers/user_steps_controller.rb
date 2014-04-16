@@ -3,6 +3,13 @@ class UserStepsController < ApplicationController
 	steps :step_one, :step_two
 
 	def show
-		render_wizard
-	end
+    @user = current_user
+    render_wizard
+  end
+  
+  def update
+    @user = current_user
+    @user.attributes = params[:user]
+    render_wizard @user
+  end
 end

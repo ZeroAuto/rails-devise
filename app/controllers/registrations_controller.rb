@@ -7,6 +7,10 @@ class RegistrationsController < Devise::RegistrationsController
       respond_with self.resource
   end
 
+  def create
+    redirect_to user_steps_path
+  end
+
   def update_sanitized_params
     devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:band_name, :email, :password, :password_confirmation, 
     	members_attributes: [:first_name, :last_name, :city, :state, :joined_date, :left_date, :instruments, :email])}
