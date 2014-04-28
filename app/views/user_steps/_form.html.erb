@@ -1,4 +1,4 @@
-<h1>Step One</h1>
+
 
 <%= form_for @user, url: wizard_path do |f| %>
   <% if @user.errors.any? %>
@@ -11,10 +11,11 @@
       </ul>
     </div>
   <% end %>
-  <%= f.label :band_name %>
-  <%= f.text_field :band_name %>
+  <%= yield f %>
+  
   <div class="actions">
     <%= f.submit "Continue" %>
     or <%= link_to "skip this step", next_wizard_path %>
   </div>
 <% end %>
+

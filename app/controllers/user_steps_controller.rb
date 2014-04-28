@@ -1,4 +1,5 @@
 class UserStepsController < ApplicationController
+  before_filter :authenticate_user!
 	include Wicked::Wizard
 	steps :step_one, :step_two
 
@@ -8,6 +9,7 @@ class UserStepsController < ApplicationController
   end
   
   def update
+    params.permit!
     @user = current_user
     @user.attributes = params[:user]
     render_wizard @user
